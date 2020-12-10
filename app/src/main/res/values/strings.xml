@@ -1,5 +1,18 @@
 <resources>
     <string name="app_name">Sneaker Calendar</string>
-    <string name="title_home">Home</string>
+    <string name="title_home">Sneaker Releases</string>
     <string name="title_account">Account</string>
+    <string name="title_signin">Sign In</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_sign_out">Sign out</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="item_name_placeholder">Air Jordan 1</string>
+    <string name="item_release_date_placeholder">November 11 2020</string>
+
 </resources>

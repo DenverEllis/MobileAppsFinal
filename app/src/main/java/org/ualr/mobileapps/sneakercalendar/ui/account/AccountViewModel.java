@@ -4,16 +4,17 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.google.firebase.auth.FirebaseUser;
+
 public class AccountViewModel extends ViewModel {
 
-    private MutableLiveData<String> mText;
+    private MutableLiveData<FirebaseUser> mUser;
 
     public AccountViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is account fragment");
+        mUser = new MutableLiveData<>();
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public LiveData<FirebaseUser> getUser() {
+        return mUser;
     }
 }
