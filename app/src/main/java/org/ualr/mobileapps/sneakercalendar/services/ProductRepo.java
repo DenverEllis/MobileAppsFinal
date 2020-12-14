@@ -16,5 +16,4 @@ public class ProductRepo {
         return firestore.collection(COLLECTION_NAME)
                 .orderBy("release_date");
     }
-
 }

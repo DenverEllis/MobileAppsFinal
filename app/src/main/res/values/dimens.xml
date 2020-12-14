@@ -10,4 +10,11 @@
     <dimen name="item_picture_size">64dp</dimen>
     <dimen name="item_horizontal_padding">8dp</dimen>
     <dimen name="item_vertical_padding">8dp</dimen>
+    <dimen name="product_image_height">160dp</dimen>
+    <dimen name="subtitle_1_size">16sp</dimen>
+    <dimen name="subtitle_1_letter_spacing">0.15</dimen>
+    <dimen name="subtitle_2_size">14sp</dimen>
+    <dimen name="subtitle_2_letter_spacing">0.1</dimen>
+    <dimen name="body_1_size">16sp</dimen>
+    <dimen name="body_1_letter_spacing">0.5</dimen>
 </resources>

@@ -6,21 +6,26 @@ import com.google.firebase.firestore.PropertyName;
 
 import java.util.Date;
 
-public class Product {
-    private String name;
-    private Date releaseDate;
-    private Uri imageUrl;
+public class Favorite {
     private String description;
+    private String imageUrl;
+    private String name;
     private float price;
+    private Date releaseDate;
+    private String userId;
 
-    public Product() {}
 
-    public Product(String name, Date releaseDate, Uri imageUrl, String description, float price) {
+
+    public Favorite() {}
+
+    public Favorite(String name, Date releaseDate, String imageUrl, String description,
+                    String userId, float price) {
         this.name = name;
         this.releaseDate = releaseDate;
         this.imageUrl = imageUrl;
         this.description = description;
         this.price = price;
+        this.userId = userId;
     }
 
     public String getName() {
@@ -38,16 +43,19 @@ public class Product {
 
     @PropertyName("image_url")
     public void setImageUrl(String imageUrl) {
-        Uri uri = Uri.parse(imageUrl);
-        this.imageUrl = uri;
+        this.imageUrl = imageUrl;
     }
 
-    public float getPrice() {
-        return price;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public void setPrice(float price) {
         this.price = price;
+    }
+
+    public float getPrice() {
+        return price;
     }
 
     public String getDescription() {
@@ -64,7 +72,17 @@ public class Product {
     }
 
     @PropertyName("image_url")
-    public Uri getImageUrl() {
+    public String getImageUrl() {
         return imageUrl;
     }
+
+    public Product toProduct() {
+        return new Product(name, releaseDate, Uri.parse(imageUrl), description, price);
+    }
+
+    @PropertyName("user_id")
+    public String getUserId() {
+        return userId;
+    }
+
 }

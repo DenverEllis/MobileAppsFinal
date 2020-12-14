@@ -2,7 +2,6 @@
     <!-- Base application theme. -->
     <style name="Theme.SneakerCalendar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="actionOverflowButtonStyle">@style/Theme.SneakerCalendar.OverflowStyle</item>
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
@@ -13,8 +12,35 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="actionOverflowButtonStyle">@style/OverflowStyle</item>
     </style>
-    <style name="Theme.SneakerCalendar.OverflowStyle" parent="Widget.AppCompat.ActionButton.Overflow">
+    <style name="Toolbar" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <item name="colorControlNormal">@color/white</item>
+        <item name="android:textColorPrimary">@color/white</item>
+    </style>
+    <style name="OverflowStyle" parent="Widget.AppCompat.ActionButton.Overflow">
         <item name="android:tint">@color/design_default_color_on_primary</item>
+    </style>
+    <style name="DrawerStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@color/design_default_color_on_primary</item>
+    </style>
+    <style name="Chip" parent="Widget.MaterialComponents.Chip.Action">
+        <item name="chipBackgroundColor">@color/purple_500</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="chipIconTint">@color/white</item>
+        <item name="chipStartPadding">12dp</item>
+        <item name="chipEndPadding">12dp</item>
+    </style>
+    <style name="Subtitle1" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/design_default_color_on_secondary</item>
+        <item name="android:textSize">@dimen/subtitle_1_size</item>
+    </style>
+    <style name="Subtitle2" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/design_default_color_on_secondary</item>
+        <item name="android:textSize">@dimen/subtitle_2_size</item>
+    </style>
+    <style name="Body1" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/design_default_color_on_secondary</item>
+        <item name="android:textSize">@dimen/body_1_size</item>
     </style>
 </resources>

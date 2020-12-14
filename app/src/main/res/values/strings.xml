@@ -14,5 +14,13 @@
     <string name="login_failed">"Login failed"</string>
     <string name="item_name_placeholder">Air Jordan 1</string>
     <string name="item_release_date_placeholder">November 11 2020</string>
-
+    <string name="remove_favorite_succeed">Favorite removed</string>
+    <string name="favorite_succeeded">Favorite added</string>
+    <string name="favorite_failed">Unable to favorite this release</string>
+    <string name="favorite_remove_failed">Unable to remove favorite</string>
+    <string name="favorite_action">Favorite</string>
+    <string name="remove_favorite_action">Remove favorite</string>
+    <string name="share_action">Share</string>
+    <string name="add_calendar_action">Add to Calendar</string>
+    <string name="sign_in_warning">Please sign in</string>
 </resources>

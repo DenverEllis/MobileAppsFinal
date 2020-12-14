@@ -7,35 +7,16 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.paging.PagedList;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.firebase.ui.firestore.paging.FirestorePagingAdapter;
-import com.firebase.ui.firestore.paging.FirestorePagingOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import org.ualr.mobileapps.sneakercalendar.R;
 import org.ualr.mobileapps.sneakercalendar.models.Product;
-import org.ualr.mobileapps.sneakercalendar.services.ProductRepo;
-import org.ualr.mobileapps.sneakercalendar.ui.product.FirebaseAdapterFactory;
-import org.ualr.mobileapps.sneakercalendar.ui.product.ProductViewHolder;
 import org.ualr.mobileapps.sneakercalendar.ui.product_view.ProductFragment;
 import org.ualr.mobileapps.sneakercalendar.ui.product_view.ProductViewModel;
 import org.ualr.mobileapps.sneakercalendar.ui.releases.ReleasesFragment;
-
-import java.util.List;
-import java.util.Objects;
 
 public class HomeFragment extends Fragment {
 
