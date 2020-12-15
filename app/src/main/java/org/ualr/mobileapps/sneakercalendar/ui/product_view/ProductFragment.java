@@ -138,6 +138,7 @@ public class ProductFragment extends Fragment {
                 .setData(CalendarContract.Events.CONTENT_URI)
                 .putExtra(CalendarContract.Events.TITLE, String
                         .format("%s Release", product.getName()))
+                .putExtra(CalendarContract.Events.DESCRIPTION, product.getDescription())
                 .putExtra(CalendarContract.Events.ALL_DAY, true)
                 .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, product.getReleaseDate()
                         .getTime());
