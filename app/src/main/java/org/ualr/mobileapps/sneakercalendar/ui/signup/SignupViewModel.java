@@ -9,8 +9,6 @@ import androidx.lifecycle.ViewModel;
 import com.google.firebase.auth.FirebaseAuth;
 
 import org.ualr.mobileapps.sneakercalendar.R;
-import org.ualr.mobileapps.sneakercalendar.ui.signup.SignupFormState;
-import org.ualr.mobileapps.sneakercalendar.ui.signup.SignupResult;
 
 public class SignupViewModel extends ViewModel {
     private MutableLiveData<SignupFormState> signupFormState = new MutableLiveData<>();

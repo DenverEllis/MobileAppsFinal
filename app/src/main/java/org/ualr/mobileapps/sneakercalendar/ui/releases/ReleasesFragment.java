@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -23,26 +25,31 @@ import org.ualr.mobileapps.sneakercalendar.ui.product_view.ProductViewModel;
 
 public class ReleasesFragment extends Fragment {
 
-    private FirebaseFirestore mFirestore;
     private ProductRepo productRepo;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        productRepo = new ProductRepo(FirebaseFirestore.getInstance());
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        mFirestore = FirebaseFirestore.getInstance();
-        productRepo = new ProductRepo(mFirestore);
+    public View onCreateView(
+            @NonNull LayoutInflater inflater,
+            @Nullable ViewGroup container,
+            @Nullable Bundle savedInstanceState) {
 
+        return inflater.inflate(R.layout.fragment_releases, container, false);
+    }
 
-        View root = inflater.inflate(R.layout.fragment_releases, container, false);
-        RecyclerView productList = root.findViewById(R.id.product_list_view);
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
-        ProductViewModel mViewModel = new ViewModelProvider(getParentFragment())
+        RecyclerView productList = view.findViewById(R.id.product_list_view);
+
+        ProductViewModel mViewModel = new ViewModelProvider(getActivity())
                 .get(ProductViewModel.class);
 
         PagedList.Config config = new PagedList.Config.Builder()
@@ -68,7 +75,5 @@ public class ReleasesFragment extends Fragment {
                 options,
                 getContext(),
                 mViewModel::selectProduct));
-
-        return root;
     }
 }

@@ -19,25 +19,32 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 import org.ualr.mobileapps.sneakercalendar.R;
+import org.ualr.mobileapps.sneakercalendar.ui.account.AccountViewModel;
 
 
 public class LoginFragment extends Fragment {
 
     private LoginViewModel loginViewModel;
+    private AccountViewModel accountViewModel;
     private FirebaseAuth mAuth;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
+        accountViewModel = new ViewModelProvider(getParentFragment()).get(AccountViewModel.class);
+        mAuth = FirebaseAuth.getInstance();
+    }
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
-
-        loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
-        mAuth = FirebaseAuth.getInstance();
-
+    public View onCreateView(
+            @NonNull LayoutInflater inflater,
+            @Nullable ViewGroup container,
+            @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_login, container, false);
     }
 
@@ -47,7 +54,8 @@ public class LoginFragment extends Fragment {
 
         final EditText usernameEditText = view.findViewById(R.id.username);
         final EditText passwordEditText = view.findViewById(R.id.password);
-        final Button loginButton = view.findViewById(R.id.signup);
+        final Button loginButton = view.findViewById(R.id.login_button);
+        final Button signUpButton = view.findViewById(R.id.sign_up_button);
         final ProgressBar loadingProgressBar = view.findViewById(R.id.loading);
 
         loginViewModel.getLoginFormState().observe(getViewLifecycleOwner(), loginFormState -> {
@@ -68,7 +76,6 @@ public class LoginFragment extends Fragment {
                 showLoginFailed(loginResult.getErrorMessage());
             } else {
                 if (mAuth.getCurrentUser() != null) {
-                    updateUiWithUser(mAuth.getCurrentUser());
                     usernameEditText.setText("");
                     passwordEditText.setText("");
                 }
@@ -109,13 +116,8 @@ public class LoginFragment extends Fragment {
             loginViewModel.login(usernameEditText.getText().toString(),
                     passwordEditText.getText().toString());
         });
-    }
 
-    private void updateUiWithUser(FirebaseUser user) {
-        String welcome = getString(R.string.welcome) + user.getDisplayName();
-        if (getContext() != null && getContext().getApplicationContext() != null) {
-            Toast.makeText(getContext().getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
-        }
+        signUpButton.setOnClickListener(v -> accountViewModel.setIsSigningUp(true));
     }
 
     private void showLoginFailed(@StringRes Integer errorString) {

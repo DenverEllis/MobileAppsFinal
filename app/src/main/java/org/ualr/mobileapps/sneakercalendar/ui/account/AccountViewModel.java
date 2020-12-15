@@ -4,17 +4,29 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.google.firebase.auth.FirebaseUser;
-
 public class AccountViewModel extends ViewModel {
 
-    private MutableLiveData<FirebaseUser> mUser;
+    private MutableLiveData<Boolean> mIsSigningUp;
+    private MutableLiveData<Boolean> mIsSignedIn;
 
     public AccountViewModel() {
-        mUser = new MutableLiveData<>();
+        mIsSigningUp = new MutableLiveData<>(false);
+        mIsSignedIn = new MutableLiveData<>(false);
     }
 
-    public LiveData<FirebaseUser> getUser() {
-        return mUser;
+    public LiveData<Boolean> isSigningUp() {
+        return mIsSigningUp;
+    }
+
+    public LiveData<Boolean> isSignedIn() {
+        return mIsSignedIn;
+    }
+
+    public void setIsSignedIn(Boolean isSignedIn) {
+        mIsSignedIn.setValue(isSignedIn);
+    }
+
+    public void setIsSigningUp(Boolean isSigningUp) {
+        mIsSigningUp.setValue(isSigningUp);
     }
 }
